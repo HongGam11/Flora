@@ -1,5 +1,5 @@
 -- =====================================================================
--- FLORA - Website bán quần áo nam và nữ
+-- FLORA - Website bán quần áo 
 -- Triển khai SQL theo Flora_Database.md (15 bảng, MariaDB 10.4.32 / XAMPP)
 --
 -- Quy ước (mục 2 của tài liệu):
