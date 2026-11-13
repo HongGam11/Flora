@@ -1,0 +1,978 @@
+/* ========================================
+   CUSTOMER.CSS - GIAO DIỆN RIÊNG FLORA SHOP
+   ======================================== */
+
+/* === 1. FLORA THEME OVERRIDE (Đen trắng tối giản) === */
+:root {
+    --bg: #fff;
+    --sf: #fff;
+    --tx: #000;
+    --mu: #666;
+    --bd: #dfdfdf;
+    --pr: #000;
+    --prd: #262626;
+    --ac: #000;
+    --acs: #f5f5f5;
+    --fb: 'Segoe UI', Tahoma, Arial, sans-serif;
+    --fh: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --bg: #000;
+        --sf: #111;
+        --tx: #fff;
+        --mu: #a0a0a0;
+        --bd: #2e2e2e;
+        --pr: #fff;
+        --prd: #d9d9d9;
+        --ac: #fff;
+        --acs: #1a1a1a;
+    }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #000;
+    --sf: #111;
+    --tx: #fff;
+    --mu: #a0a0a0;
+    --bd: #2e2e2e;
+    --pr: #fff;
+    --prd: #d9d9d9;
+    --ac: #fff;
+    --acs: #1a1a1a;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+}
+
+h2 { font-size: 1.7rem; }
+
+/* === 2. TOPBAR === */
+.topbar {
+    background: var(--acs);
+    font-size: .78rem;
+}
+
+.topbar .c {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0;
+    min-height: 32px;
+    align-items: center;
+}
+
+.topbar span {
+    padding: 0 12px;
+    cursor: default;
+}
+
+.topbar span + span {
+    border-left: 1px solid var(--bd);
+}
+
+/* === 3. HEADER & LOGO FLORA === */
+.logo {
+    font: 700 1.6rem var(--fh);
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    color: var(--tx);
+}
+
+header {
+    background: var(--sf);
+    border-bottom: 1px solid var(--bd);
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 50;
+}
+
+header .c {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 68px;
+    flex-wrap: wrap;
+}
+
+/* === 4. NAVIGATION === */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+}
+
+header nav a {
+    color: var(--tx);
+    border-bottom: 2px solid transparent;
+    padding: 4px 0;
+    font-weight: 500;
+    font-size: .9rem;
+    white-space: nowrap;
+}
+
+header nav a.on,
+header nav a:hover {
+    border-color: var(--tx);
+}
+
+/* === 5. SEARCH BAR === */
+.sp {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* === 6. BUTTONS OVERRIDE === */
+.btn, .ob, .pri {
+    border-radius: 0;
+}
+
+.fc { border-radius: 4px; }
+
+.btn { border-color: var(--tx); }
+.btn:hover { background: var(--acs); }
+
+.pri, .pri:hover { color: var(--bg); }
+.pri { border-color: var(--pr); }
+
+.cnt { background: var(--tx); color: var(--bg); }
+
+/* === 7. PILLS (Danh mục) === */
+.pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.pills a {
+    padding: 7px 16px;
+    border: 1px solid var(--tx);
+    border-radius: 99px;
+    background: var(--sf);
+    color: var(--tx);
+}
+
+.pills a.on {
+    background: var(--tx);
+    color: var(--bg);
+    border-color: var(--tx);
+}
+
+/* === 8. FILTER BAR === */
+.bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 14px;
+    background: var(--sf);
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.bar label {
+    display: block;
+    font-size: .85rem;
+    color: var(--mu);
+}
+
+/* === 9. PRODUCT GRID === */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.card {
+    color: inherit;
+    display: block;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.card:hover .nm {
+    color: var(--pr);
+}
+
+.product-size-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.size-option {
+    min-width: 36px;
+    padding: 6px 8px;
+    border: 1px solid var(--bd);
+    background: #fff;
+    color: var(--tx);
+    font-size: .75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.size-option:hover,
+.size-option.active {
+    border-color: var(--tx);
+    background: var(--tx);
+    color: var(--bg);
+}
+
+.ph {
+    aspect-ratio: 4/5;
+    border-radius: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 600 3rem var(--fh);
+    color: rgba(0, 0, 0, .22);
+    filter: saturate(.45);
+}
+
+.tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font: 500 .78rem var(--fb);
+    background: var(--sf);
+    color: var(--tx);
+    padding: 2px 10px;
+    border-radius: 0;
+    font-weight: 700;
+    text-transform: none;
+}
+
+.nm {
+    margin: 12px 0 2px;
+    font-weight: 500;
+}
+
+.pr {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+/* === 10. PAGINATION === */
+.pg {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+.pg button.on {
+    background: var(--tx);
+    color: var(--bg);
+    border-color: var(--tx);
+}
+
+/* === 11. PRODUCT DETAIL === */
+.det {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.det .ph {
+    font-size: 6rem;
+}
+
+.opt {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0 16px;
+}
+
+.ob {
+    padding: 8px 14px;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    background: var(--sf);
+    cursor: pointer;
+    min-width: 48px;
+}
+
+.ob.on {
+    background: var(--tx);
+    color: var(--bg);
+    border-color: var(--tx);
+}
+
+.ob.no {
+    color: var(--mu);
+    text-decoration: line-through;
+    cursor: not-allowed;
+    background: var(--bg);
+}
+
+.ob:hover { border-color: var(--tx); }
+
+.note {
+    color: var(--mu);
+    margin: 4px 0 16px;
+}
+
+.note.lo { color: var(--wn); }
+.note.out { color: var(--dg); }
+
+/* === 12. STATS (Dashboard) === */
+.st {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.sc {
+    background: var(--sf);
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    padding: 14px 18px;
+}
+
+.sc p {
+    margin: 0;
+    color: var(--mu);
+    font-size: .9rem;
+}
+
+.sc b {
+    font: 600 1.6rem var(--fh);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+/* === 13. HERO SECTION === */
+.hero {
+    background: var(--acs);
+    padding: 72px 0;
+}
+.hero h1 {
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    max-width: 16ch;
+    color: var(--tx);
+}
+
+.hero p {
+    color: var(--tx);
+    font-size: 1rem;
+    margin-bottom: 24px;
+    max-width: 52ch;
+}
+
+/* === 14. TABLE OVERRIDE === */
+.sc, .tw {
+    border-radius: 0;
+    border-color: var(--bd);
+}
+
+th {
+    text-transform: none;
+    font-weight: 700;
+}
+
+.al { border-radius: 0; }
+
+footer { background: var(--bg); }
+
+/* === 15. RESPONSIVE FLORA === */
+@media (max-width: 750px) {
+    .topbar { display: none; }
+    header nav {
+        gap: 16px;
+        margin: 0;
+    }
+}
+
+/* === 16. GENDER COLUMNS (Nam | Nữ) === */
+.gender-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+.gender-column h3.section-title {
+    font: 700 1.4rem var(--fh);
+    letter-spacing: -.02em;
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    color: #000;
+}
+.gender-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+@media (max-width: 900px) {
+    .gender-columns { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 520px) {
+    .gender-grid { grid-template-columns: 1fr; }
+}
+
+/* === 17. PRODUCT CARD HOVER ANIMATION === */
+.card.product-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    background: var(--sf);
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+.card.product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+.card.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    border-color: #000;
+    z-index: 5;
+}
+.card.product-card:hover::before {
+    opacity: 1;
+}
+.card.product-card .product-link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.card.product-card .ph {
+    height: 260px;
+    width: 100%;
+    flex-shrink: 0;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    overflow: hidden;
+}
+.card.product-card:hover .ph {
+    transform: scale(1.05);
+    filter: brightness(0.95);
+}
+.card.product-card .ph::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.card.product-card:hover .ph::after {
+    opacity: 1;
+}
+.card.product-card .nm {
+    font: 600 0.95rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    color: #000;
+    margin: 12px 14px 4px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+.card.product-card:hover .nm { color: #000; }
+.card.product-card .pr {
+    font: 600 0.95rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    color: #000;
+    margin: 0 14px 14px;
+    font-variant-numeric: tabular-nums;
+}
+.tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font: 600 0.75rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 0;
+    z-index: 3;
+}
+.card.product-card .product-actions {
+    padding: 0 14px 18px;
+    margin-top: auto;
+}
+
+/* === 18. PRODUCT ACTIONS (Size + Qty + Add to Cart) === */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.product-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.product-size-selector {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+.size-option {
+    flex: 1 1 40px;
+    min-width: 40px;
+    padding: 8px 4px;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    background: var(--sf);
+    color: var(--tx);
+    font: 600 0.85rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+.size-option:hover { border-color: var(--tx); }
+.size-option.active {
+    background: var(--tx);
+    border-color: var(--tx);
+    color: #fff;
+}
+.product-qty {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 90px;
+}
+.product-qty input.qty-input {
+    width: 50px;
+    padding: 8px 10px;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    background: var(--sf);
+    color: var(--tx);
+    font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    text-align: center;
+}
+.add-to-cart {
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    background: var(--tx);
+    border: 1px solid var(--tx);
+    border-radius: 0;
+    color: #fff;
+    font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.add-to-cart:hover {
+    background: #1a1a1a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,.15);
+}
+.add-to-cart:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Cart page enhancements */
+.cart-qty {
+    width: 70px;
+    padding: 6px 8px;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    background: var(--sf);
+    color: var(--tx);
+    font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    text-align: center;
+}
+.remove-item {
+    background: #fff;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    color: var(--dg);
+    font: 600 0.85rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.remove-item:hover {
+    background: var(--dgb);
+    border-color: var(--dg);
+}
+
+/* === 16. PRODUCT CARD ACTIONS (Size + Qty + Add to Cart) === */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.product-size-selector {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.size-option {
+    flex: 1 1 40px;
+    min-width: 40px;
+    padding: 8px 4px;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    background: var(--sf);
+    color: var(--tx);
+    font: 600 0.85rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.size-option:hover {
+    border-color: var(--tx);
+}
+
+.size-option.active {
+    background: var(--tx);
+    border-color: var(--tx);
+    color: #fff;
+}
+
+.product-qty {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 90px;
+}
+
+.product-qty input.qty-input {
+    width: 50px;
+    padding: 8px 10px;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    background: var(--sf);
+    color: var(--tx);
+    font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    text-align: center;
+}
+
+.add-to-cart {
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    background: var(--tx);
+    border: 1px solid var(--tx);
+    border-radius: 0;
+    color: #fff;
+    font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.add-to-cart:hover {
+    background: #1a1a1a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,.15);
+}
+
+.add-to-cart:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Cart page enhancements */
+.cart-qty {
+    width: 70px;
+    padding: 6px 8px;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    background: var(--sf);
+    color: var(--tx);
+    font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    text-align: center;
+}
+
+.remove-item {
+    background: #fff;
+    border: 1px solid var(--bd);
+    border-radius: 0;
+    color: var(--dg);
+    font: 600 0.85rem 'Segoe UI', Tahoma, Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.remove-item:hover {
+    background: var(--dgb);
+    border-color: var(--dg);
+}
+
+.hero h1, .hero p { color: #fff; }
+        .ph {
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #cart-toast {
+            position: fixed;
+            inset: auto 24px 24px auto;
+            background: #000;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 0;
+            font-size: 0.9rem;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,.15);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all .3s ease;
+            pointer-events: none;
+        }
+        #cart-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        #cart-toast .toast-close {
+            float: right;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+        /* ========== NUT LOC LOAI SAN PHAM ========== */
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid #000;
+            background: #fff;
+            color: #000;
+            font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            transition: all 0.2s ease;
+            border-radius: 0;
+        }
+        .filter-btn:hover {
+            background: #f5f5f5;
+        }
+        .filter-btn.active {
+            background: #000;
+            color: #fff;
+        }
+
+        /* ========== BO LOC SAN PHAM ========== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+        @media (max-width: 520px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        /* ========== THE SAN PHAM ========== */
+        .card.product-card {
+            border: 1px solid var(--bd);
+            border-radius: 0;
+            background: var(--sf);
+            overflow: hidden;
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .card.product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: #000;
+            z-index: 5;
+        }
+        .card.product-card .product-link {
+            text-decoration: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .card.product-card .ph {
+            height: 260px;
+            width: 100%;
+            flex-shrink: 0;
+            transition: transform 0.4s ease;
+        }
+        .card.product-card:hover .ph {
+            transform: scale(1.05);
+        }
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font: 600 0.75rem 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 0;
+            z-index: 3;
+        }
+        .card.product-card .nm {
+            font: 600 0.95rem 'Segoe UI', Tahoma, Arial, sans-serif;
+            color: #000;
+            margin: 12px 14px 4px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card.product-card .pr {
+            font: 600 0.95rem 'Segoe UI', Tahoma, Arial, sans-serif;
+            color: #000;
+            margin: 0 14px 14px;
+            font-variant-numeric: tabular-nums;
+        }
+        .card.product-card .product-actions {
+            padding: 0 14px 18px;
+            margin-top: auto;
+        }
+
+        /* ========== CHON KICH THUOC + SO LUONG + NUT DAT HANG ========== */
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .product-size-selector {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+        .size-option {
+            flex: 1 1 40px;
+            min-width: 40px;
+            padding: 8px 4px;
+            border: 1px solid var(--bd);
+            border-radius: 0;
+            background: var(--sf);
+            color: var(--tx);
+            font: 600 0.85rem 'Segoe UI', Tahoma, Arial, sans-serif;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .size-option:hover { border-color: #000; }
+        .size-option.active {
+            background: #000;
+            border-color: #000;
+            color: #fff;
+        }
+        .product-qty {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 90px;
+        }
+        .product-qty input.qty-input {
+            width: 50px;
+            padding: 8px 10px;
+            border: 1px solid var(--bd);
+            border-radius: 0;
+            background: var(--sf);
+            color: var(--tx);
+            font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+            text-align: center;
+        }
+        .add-to-cart {
+            flex: 0 0 auto;
+            padding: 10px 20px;
+            background: #000;
+            border: 1px solid #000;
+            border-radius: 0;
+            color: #fff;
+            font: 600 0.9rem 'Segoe UI', Tahoma, Arial, sans-serif;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .add-to-cart:hover {
+            background: #1a1a1a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,.15);
+        }
+        .add-to-cart:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+

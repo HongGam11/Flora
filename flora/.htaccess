@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "^(database(?:\.example|\.local)?\.php|README\.md|\..*)$">
+    Require all denied
+</FilesMatch>

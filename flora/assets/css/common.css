@@ -1,0 +1,263 @@
+
+:root {
+    --bg: #ffffff;
+    --sf: #ffffff;
+    --tx: #111111;
+    --mu: #888888;
+    --bd: #e0e0e0;
+    --pr: #333333;
+    --prd: #111111;
+    --ac: #555555;
+    --acs: #f5f5f5;
+    --ok: #2e7d4f;
+    --okb: #f0faf4;
+    --wn: #8a6100;
+    --wnb: #fffbf0;
+    --dg: #b3362d;
+    --dgb: #fff5f4;
+    --fb: 'Segoe UI', Tahoma, Arial, sans-serif;
+    --fh: 'Segoe UI', Tahoma, Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Dark mode tự động */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: light;
+        --bg: #ffffff;
+        --sf: #ffffff;
+        --tx: #111111;
+        --mu: #888888;
+        --bd: #e0e0e0;
+        --pr: #333333;
+        --prd: #111111;
+        --acs: #f5f5f5;
+        --okb: #f0faf4;
+        --ok: #2e7d4f;
+        --wnb: #fffbf0;
+        --wn: #8a6100;
+        --dgb: #fff5f4;
+        --dg: #b3362d;
+    }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: light;
+    --bg: #ffffff;
+    --sf: #ffffff;
+    --tx: #111111;
+    --mu: #888888;
+    --bd: #e0e0e0;
+    --pr: #333333;
+    --prd: #111111;
+    --acs: #f5f5f5;
+    --okb: #f0faf4;
+    --ok: #2e7d4f;
+    --wnb: #fffbf0;
+    --wn: #8a6100;
+    --dgb: #fff5f4;
+    --dg: #b3362d;
+}
+
+html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font: 16px/1.6 var(--fb);
+    color: var(--tx);
+    background: var(--bg);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    background: var(--sf);
+    z-index: 60;
+}
+
+a {
+    color: var(--pr);
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--fh);
+  font-weight: 800;
+  text-transform: uppercase;   /* tự in hoa, không cần gõ hoa trong HTML */
+  letter-spacing: .04em;       /* giãn chữ nhẹ cho thoáng */
+  line-height: 1.3;            /* 1.3 để dấu tiếng Việt không bị cắt */
+  margin: 0 0 12px;
+}
+
+:focus-visible {
+    outline: 3px solid var(--ac);
+    outline-offset: 2px;
+}
+
+/* === 3. UTILITY CLASSES === */
+.c {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* === 4. FORM ELEMENTS === */
+input, select, button {
+    font: inherit;
+    color: var(--tx);
+}
+
+.fc {
+    padding: 9px 12px;
+    background: var(--sf);
+    border: 1px solid var(--bd);
+    border-radius: 6px;
+    min-width: 0;
+}
+
+.btn {
+    padding: 9px 18px;
+    background: var(--sf);
+    border: 1px solid var(--bd);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    border-color: var(--mu);
+}
+
+.pri {
+    background: var(--pr);
+    border-color: var(--pr);
+    color: #fff;
+}
+
+.pri:hover {
+    background: var(--prd);
+}
+
+.btn[disabled] {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.cnt {
+    background: var(--ac);
+    color: #fff;
+    border-radius: 99px;
+    padding: 0 7px;
+    font-size: .75rem;
+    margin-left: 4px;
+}
+
+/* === 5. COMMON COMPONENTS === */
+section {
+    padding: 32px 0;
+}
+
+.hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.empty {
+    padding: 40px 16px;
+    text-align: center;
+    color: var(--mu);
+}
+
+.al {
+    padding: 10px 14px;
+    border-radius: 6px;
+    border-left: 4px solid var(--ok);
+    background: var(--okb);
+    color: var(--ok);
+    margin: 12px 0;
+}
+
+/* Table chung */
+.tw {
+    overflow-x: auto;
+    background: var(--sf);
+    border: 1px solid var(--bd);
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .92rem;
+}
+
+th, td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--bd);
+    white-space: nowrap;
+}
+
+th {
+    background: var(--bg);
+}
+
+td.n, th.n {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+tr:last-child td {
+    border: 0;
+}
+
+.lo { color: var(--wn); font-weight: 600; }
+.zr { color: var(--dg); font-weight: 600; }
+.rn { font-size: .85rem; color: var(--mu); margin: 0 0 28px; }
+
+/* Footer chung */
+footer {
+    border-top: 1px solid var(--bd);
+    background: var(--sf);
+    color: var(--mu);
+    padding: 24px 0;
+    margin-top: 32px;
+    font-size: .9rem;
+}
+
+/* === 6. MEDIA QUERIES CHUNG === */
+@media (max-width: 900px) {
+    .grid, .st {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .det {
+        grid-template-columns: 1fr;
+    }
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .grid { gap: 12px; }
+    .st { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
