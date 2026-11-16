@@ -1,0 +1,324 @@
+body.flora-admin {
+    margin: 0;
+    background: #f5f6f8;
+    color: #242424;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.flora-admin .admin-topbar {
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 18px 24px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.flora-admin .admin-brand {
+    color: #222;
+    font-size: 24px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.flora-admin .admin-brand span {
+    margin-left: 10px;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.flora-admin .admin-topbar-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.flora-admin .admin-topbar-actions a {
+    color: #333;
+}
+
+.flora-admin .admin-shell {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    min-height: calc(100vh - 80px);
+}
+
+.flora-admin .admin-sidebar {
+    padding: 24px 14px;
+    background: #fff;
+    border-right: 1px solid #ddd;
+}
+
+.flora-admin .admin-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.flora-admin .admin-menu-link {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 7px;
+    color: #444;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.flora-admin .admin-menu-link:hover {
+    background: #f0f0f0;
+}
+
+.flora-admin .admin-menu-link.is-active {
+    color: #fff;
+    background: #252525;
+}
+
+.flora-admin .admin-content {
+    min-width: 0;
+    padding: 28px;
+}
+
+.flora-admin .admin-card {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+}
+
+.flora-admin .admin-card h1 {
+    margin-top: 0;
+}
+
+.flora-admin .admin-page-footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #ddd;
+    color: #777;
+    font-size: 13px;
+}
+/* Hiệu ứng cho các thao tác trong trang mã giảm giá */
+.flora-admin .admin-coupons-page :is(a, button) {
+    transition:
+        background-color .2s ease,
+        box-shadow .2s ease;
+}
+.flora-admin .tv3-catalog h1 {
+    font-size: 26px;
+}
+
+.flora-admin .tv3-catalog h2 {
+    margin-top: 24px;
+    font-size: 20px;
+}
+
+.flora-admin .tv3-catalog .tv3-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.flora-admin .tv3-catalog a {
+    color: #583b25;
+}
+
+.flora-admin .tv3-catalog form:not(.inline) {
+    display: grid;
+    gap: 12px;
+    margin: 14px 0;
+}
+
+.flora-admin .tv3-catalog label {
+    display: grid;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.flora-admin .tv3-catalog input:not([type="checkbox"]),
+.flora-admin .tv3-catalog select,
+.flora-admin .tv3-catalog textarea {
+    width: 100%;
+    max-width: 600px;
+    min-width: 0;
+    padding: 9px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    color: #242424;
+    font: inherit;
+}
+
+.flora-admin .tv3-catalog textarea {
+    resize: vertical;
+}
+
+.flora-admin .tv3-catalog input:focus,
+.flora-admin .tv3-catalog select:focus,
+.flora-admin .tv3-catalog textarea:focus {
+    outline: 2px solid #583b25;
+    outline-offset: 2px;
+}
+
+.flora-admin .tv3-catalog button,
+.flora-admin .tv3-catalog .tv3-button {
+    display: inline-block;
+    width: fit-content;
+    padding: 8px 12px;
+    border: 1px solid #583b25;
+    border-radius: 5px;
+    background: #fff;
+    color: #583b25;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.flora-admin .tv3-catalog .inline {
+    display: inline-block;
+    margin: 5px;
+}
+
+.flora-admin .tv3-catalog .tv3-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.flora-admin .tv3-catalog table {
+    min-width: 650px;
+}
+
+.flora-admin .tv3-catalog td {
+    min-width: 90px;
+    vertical-align: top;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .flora-admin .admin-coupons-page a.button:hover,
+    .flora-admin .admin-coupons-page tbody a:hover,
+    .flora-admin .admin-coupons-page button:not(:disabled):hover {
+        background-color: #f3ebe4 !important;
+        box-shadow: 0 0 0 3px rgb(88 59 37 / 15%);
+    }
+
+
+    .flora-admin .admin-coupons-page
+    form[action*="admin_coupons_delete"] button:hover {
+        background-color: #fff0f0 !important;
+        box-shadow: 0 0 0 3px rgb(217 83 79 / 15%);
+    }
+
+    .flora-admin .admin-coupons-page tbody tr:hover > td {
+        background-color: #faf6f2;
+    }
+    .flora-admin .tv3-catalog button:not(:disabled):hover,
+    .flora-admin .tv3-catalog .tv3-button:hover {
+        background: #f3ebe4;
+        box-shadow: 0 0 0 3px rgb(88 59 37 / 12%);
+    }
+        .flora-admin .tv3-catalog a:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    .flora-admin .tv3-catalog tbody tr:hover > td {
+        background: #faf6f2;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flora-admin .admin-coupons-page :is(a, button) {
+        transition: none;
+    }
+        .flora-admin .tv3-catalog button,
+    .flora-admin .tv3-catalog .tv3-button {
+        transition: none;
+    }
+}
+@media (hover: hover) and (pointer: fine) {
+    .flora-admin .admin-menu-link:hover {
+        color: #583b25;
+        background-color: #f3ebe4;
+    }
+
+    .flora-admin .admin-menu-link.is-active:hover {
+        color: #fff;
+        background-color: #583b25;
+    }
+
+    .flora-admin .admin-topbar-actions a:hover {
+        color: #583b25;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+    }
+}
+@media (max-width: 760px) {
+    .flora-admin .admin-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .flora-admin .admin-sidebar {
+        padding: 12px;
+        border-right: 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .flora-admin .admin-sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .flora-admin .admin-menu-link {
+        padding: 10px 12px;
+    }
+
+    .flora-admin .admin-content {
+        padding: 18px;
+    }
+}
+@media (max-width: 600px) {
+    .flora-admin .tv3-catalog {
+        padding: 14px;
+    }
+
+    .flora-admin .tv3-catalog h1 {
+        font-size: 22px;
+    }
+}
+
+/* TV1 phase 2: scoped account/profile and user management. */
+.tv1-profile{max-width:760px;margin:48px auto 64px;padding:28px;border:1px solid #e7e1d9;border-radius:16px;background:#fff}
+.tv1-profile h1,.tv1-users h1{margin:8px 0 16px;font-size:30px;line-height:1.3}
+.tv1-eyebrow{color:#765a44;font-size:12px;letter-spacing:2px;font-weight:700}
+.tv1-links{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 24px}
+.tv1-form{display:grid;gap:18px;max-width:640px;margin-top:24px}
+.tv1-form label,.tv1-filters label{display:grid;gap:8px;font-weight:600}
+.tv1-form input,.tv1-form textarea,.tv1-filters input,.tv1-filters select,.tv1-inline select{box-sizing:border-box;width:100%;padding:11px 12px;border:1px solid #d8d3cd;border-radius:8px;background:#fff;color:#26221d;font:inherit}
+.tv1-form input[readonly]{background:#f5f3f0;color:#69625c}
+.tv1-form small{font-weight:400;color:#69625c}
+.tv1-form button{justify-self:start;cursor:pointer}
+.tv1-error{padding:14px 18px;background:#fff1ef;color:#9f241c;border:1px solid #efc4be;border-radius:8px}
+.tv1-users{max-width:1300px;margin:auto}.tv1-users p{line-height:1.65}
+.tv1-filters{display:flex;flex-wrap:wrap;align-items:end;gap:16px;padding:20px 0}
+.tv1-filters label:first-of-type{flex:1;min-width:200px}
+.tv1-table-wrap{overflow-x:auto;border:1px solid #e4dfd9;border-radius:10px;background:white}
+.tv1-users table{width:100%;border-collapse:collapse;min-width:760px}
+.tv1-users th,.tv1-users td{text-align:left;padding:16px;border-bottom:1px solid #ece8e3;vertical-align:top}
+.tv1-users th{background:#f7f4ef}.tv1-inline{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.tv1-inline select{max-width:165px}.tv1-inline button{border:1px solid #c9bbae;border-radius:6px;padding:8px 10px;background:white;cursor:pointer;white-space:nowrap}
+.tv1-status{display:inline-block;padding:4px 9px;border-radius:20px;font-size:13px}.tv1-status.is-active{background:#e9f4ed;color:#21683d}.tv1-status.is-disabled{background:#f8e8e5;color:#922f25}
+.tv1-staff{border:1px solid #e4dfd9;border-radius:10px;padding:20px;background:white;margin:24px 0}.tv1-staff summary{font-size:19px;font-weight:700;cursor:pointer}
+@media(max-width:650px){.tv1-profile{margin:20px 12px;padding:20px}.tv1-profile h1{font-size:25px}.tv1-filters{display:grid}.tv1-users th,.tv1-users td{padding:12px}}

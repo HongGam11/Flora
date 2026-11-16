@@ -1,0 +1,30 @@
+// kiểm tra đã có tài khoản chưa:
+SELECT
+    id,
+    full_name,
+    email,
+    role,
+    status
+FROM users
+WHERE email = 'tran.demo@example.com';
+
+// Kiểm tra em mật khẩu đã băm:
+SELECT
+    email,
+    LEFT(password_hash, 4) AS hash_prefix,
+    CHAR_LENGTH(password_hash) AS hash_length
+FROM users
+WHERE email = 'tran.demo@example.com';
+
+// kiểm tra 10 tk đã tọa gần nhất
+SELECT
+    id,
+    full_name,
+    email,
+    role,
+    status,
+    LEFT(password_hash, 4) AS hash_prefix,
+    CHAR_LENGTH(password_hash) AS hash_length
+FROM users
+ORDER BY id DESC
+LIMIT 10;

@@ -1,0 +1,6 @@
+<section class="tv3-catalog admin-card"><h1><?= e('Thông tin sản phẩm') ?></h1>
+<p class="tv3-nav"><a href="/flora/index.php?route=admin_categories">Danh mục</a> · <a href="/flora/index.php?route=admin_products">Sản phẩm</a> · <a href="/flora/index.php?route=admin_variants">Biến thể và kho</a></p>
+<form method="post" action="/flora/index.php?route=admin_products_save"><?php echo '<input type="hidden" name="csrf_token" value="' . e($csrf) . '">' ?><input type="hidden" name="id" value="<?=e($item['id']??'')?>"><label>Danh mục con <select name="category_id" required><?php foreach($categories as $c):?><option value="<?=e($c['id'])?>" <?=((int)($item['category_id']??0)===(int)$c['id'])?'selected':''?>><?=e($c['name'])?></option><?php endforeach?></select></label><label>Tên <input name="name" required maxlength="200" value="<?=e($item['name']??'')?>"></label><label>Mô tả <textarea name="description" rows="5"><?=e($item['description']??'')?></textarea></label><button>Lưu</button></form><?php if($item):?>
+<p>Ngày mở bán đầu tiên: <?=e($item['published_at']??'Chưa mở bán')?></p>
+<?php endif;?>
+<?php if($item):?><p><a href="/flora/index.php?route=admin_variants&product_id=<?=e($item['id'])?>">Quản lý biến thể</a> | <a href="/flora/index.php?route=admin_products_images&id=<?=e($item['id'])?>">Quản lý ảnh</a></p><?php endif;echo '</section>';?>
